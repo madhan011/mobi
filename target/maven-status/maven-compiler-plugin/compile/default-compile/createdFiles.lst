@@ -1,0 +1,6 @@
+com\dao\RegisterDAO.class
+com\controller\Forget.class
+com\dao\ResgisterDAOImpl.class
+com\model\Newuser.class
+com\service\RegisterService.class
+com\model\EmailAPI.class
