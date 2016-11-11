@@ -14,7 +14,7 @@
          http://www.springframework.org/schema/context/spring-context.xsd
          http://www.springframework.org/schema/tx 
          http://www.springframework.org/schema/tx/spring-tx.xsd">
-
+         
 	<!-- hibernate db context -->
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
@@ -62,7 +62,7 @@
 		<beans:property name="host" value="smtp.gmail.com" />
 		<beans:property name="port" value="587" />
 		<beans:property name="username" value="1madhankumar1@gmail.com" />
-		<beans:property name="password" value="Bharathi9214" />
+		<beans:property name="password" value="9941872799Anu" />
 
 		<!-- The name of the property, following JavaBean naming conventions -->
 		<beans:property name="javaMailProperties">

@@ -9,7 +9,7 @@
 	<body>
 		<h1>Registration Form</h1><br />
 		<form:form commandName="Registration">
-		<table>
+		<table style="align:center">
 			<tr><td colspan="2"><form:errors path="*" cssStyle="color : red;"/></td></tr>
 			<tr><td>Name : </td><td><form:input path="name" /></td></tr>
 			<tr><td>Username : </td><td><form:input path="username" /></td></tr>

@@ -12,7 +12,7 @@ color:#000000;
 <center><h1>SHIPPING DETAILS</h1></center>
 <div class="row shippingform">
 
-<div class="col-md-12">
+<div class="col-md-6 col-md-offset-3">
 
 <form:form  method="POST" modelAttribute="shippingdetails">
 		<form:label path="sname">NAME</form:label><br>

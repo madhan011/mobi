@@ -44,29 +44,24 @@ th, td {
 
 <%@include file="Navigaton.jsp"%>
 <div ng-app="myApp" ng-controller="mainController" class="table-responsive">
-<table style="border-style:ridge">
-<tr>
-<th></th>
-<th>ID</th>
-<th>Name</th>
-<th>Description<th>
-<th>price</th>
-<th>Category</th>
-</tr>
-<tr ng-repeat="ce in prod">
-					<td class="media" colspan=3><img class="media-object" src="<c:url value="resources/admin/upload/{{ce.imagename.jpg}}"/>"></td>
-					<td>{{ce.id}}</td>
-					<td>{{ce.name}}</td>
-					<td>{{ce.description}}</td>
-					<td>{{ce.price}}</td>
-					<td>{{ce.category}}</td>
-					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<td><a href="<c:url value="edit/{{ce.id}}"/>">EDIT</a></td>
-					<td><a href="<c:url value="delete/${ce.id}"/>">DELETE</a></td>
-					</security:authorize>
+<div class="col-md-3 column productbox">
+				<div class="thumbnail">
 					
-				<td><a href="<c:url value="viewproduct/${ce.id}"/>">VIEW</a></td>
-</tr>
-</table>
+					<a  class="nameprice" href="<c:url value="/viewproduct/${productModel.productid}" />">
+					<img
+						src="<c:url value="/resources/admin/upload/${productModel.imagename}.jpg" />"  style="height:360px" class="img-responsive">
+					<center>
+						<p>
+						<strong style="color:#000000">${productModel.name}</strong><br><p style="color:#ff4d4d">Price &#x20b9; ${productModel.price}</p></a>
+						</p></center>
+					
+				
+				<security:authorize access="hasRole('ROLE_ADMIN')">
+				<div class='adminview'>
+				<hr>
+					<a href="<c:url value="edit/${productModel.productid}"/>" class="btn btn-sm btn-warning edit">EDIT</a>
+					<a href="<c:url value="delete/${productModel.productid}"/>" class="btn btn-sm btn-danger pull-right">DELETE</a>
+					</div>
+					</security:authorize>
 </div>
 <%@include file="Footerjsp.jsp"%>

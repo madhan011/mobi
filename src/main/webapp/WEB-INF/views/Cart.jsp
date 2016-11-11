@@ -127,11 +127,14 @@ $http({method:'GET',
 			<tr style="margin-top:5px">
 				<td><img src="<c:url value="/resources/admin/upload/${cart.product.imagename}.jpg"/>"
 						class="img-responsive" style="width:72px;height:72px;"></td>
-				<td ><c:if test="${cart.quantity !='1'}"><span style="margin-right:5px"><a class="btn btn-xs btn-primary" href="<c:url value="/decrease/${cart.cid}"/>">-</a></span></c:if>${cart.quantity}<span style="margin-left:5px" ><a href="<c:url value="/increase/${cart.cid}"/>" class="btn btn-xs btn-success">+</a></span></td>
+				<td ><c:if test="${cart.quantity !='1'}"><span style="margin-right:5px"><a class="btn btn-xs btn-primary" href="<c:url value="/decrease/${cart.cid}"/>">-</a></span></c:if>${cart.quantity}<span style="margin-left:5px" >
+				<c:if test="${cart.product.quantity !='0'}">
+				<a href="<c:url value="/increase/${cart.cid}"/>" class="btn btn-xs btn-success">+</a>
+				</c:if></span><c:if test="${cart.product.quantity =='0'}"><br><p style="text-align:center;font-size:18px;">No More stack</p></c:if></td>
 				<td>${cart.product.name}</td>
-				<td>&#x20b9;${cart.product.price}</td>
+				<td>&#x20b9;${cart.product.price}0</td>
 				<td>${cart.product.category}</td>
-				<td>&#x20b9;${cart.totalprice}</td>
+				<td>&#x20b9;${cart.totalprice}0</td>
 			
 				<td><a class="btn btn-danger" href="<c:url value="delete/cartitem/${cart.cid}"/>">REMOVE</a></td>
 				
@@ -148,7 +151,7 @@ $http({method:'GET',
 			
 					<div class="row">
 					<div class="pull-right"><p>Grand Total:<span style="margin-left:20px">&#x20b9;
-					${total}</span></p></div>
+					${total}0</span></p></div>
 					</div>
 			</c:when>
 			<c:when test="${total=='0' }">
@@ -168,3 +171,15 @@ $http({method:'GET',
 	</c:choose>
 	<hr class="hr1">
 	</div>
+	
+	<script>
+	var q=${cart.product.quantity}
+	if(q=='0')
+		{
+		 function notification() {
+		    	$.noty.consumeAlert({layout: 'centerRight', type: 'failure', dismissQueue: true});
+
+		        alert("you brought last item of the cart");
+		    }
+		}
+	</script>

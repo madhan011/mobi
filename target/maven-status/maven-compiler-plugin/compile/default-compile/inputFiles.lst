@@ -3,12 +3,16 @@ D:\Users\elcot\SharingCar1\cart\src\main\java\com\controller\Homecontroller.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\model\ProductModel.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\controller\CategoryController.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\model\Newuser.java
+D:\Users\elcot\SharingCar1\cart\src\main\java\com\service\ReviewServiceImpl.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\service\CartServiceImpl.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\model\RegistrationBean.java
+D:\Users\elcot\SharingCar1\cart\src\main\java\com\service\ReviewService.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\controller\AdminController.java
+D:\Users\elcot\SharingCar1\cart\src\main\java\com\dao\ReviewDao.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\service\RegisterService.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\service\ProductServiceImpl.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\model\EmailAPI.java
+D:\Users\elcot\SharingCar1\cart\src\main\java\com\dao\ReviewDaoImpl.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\service\ProductService.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\controller\Forget.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\service\Cartservice.java
@@ -17,6 +21,8 @@ D:\Users\elcot\SharingCar1\cart\src\main\java\com\dao\CartDaoImpl.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\model\Demohandler.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\model\Shipping.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\controller\ProductController.java
+D:\Users\elcot\SharingCar1\cart\src\main\java\com\model\Review.java
+D:\Users\elcot\SharingCar1\cart\src\main\java\com\controller\Reviewcontrl.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\dao\ResgisterDAOImpl.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\dao\ProductDao.java
 D:\Users\elcot\SharingCar1\cart\src\main\java\com\dao\ProductDaoImpl.java

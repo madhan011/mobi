@@ -1,6 +1,5 @@
 package com.controller;
 
-import java.lang.invoke.MethodType;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.EmailAPI;
 import com.model.Newuser;
+import com.model.ProductModel;
+import com.service.ProductService;
 import com.service.RegisterService;
 
 @Controller
@@ -24,8 +25,15 @@ public class Forget {
 	@Autowired
 	EmailAPI mailtouser;
 	
+	@Autowired
+	ProductService productservice;
+	
 	@RequestMapping(value="/getforget")
-	public String getforget(){
+	public String getforget(Map<String,Object> map){
+		ProductModel productmodelResult = new ProductModel();
+		map.put("navi",productmodelResult);
+	    map.put("navilist", productservice.getAllProductModel());
+		
 		return "ForgetPassword";
 	}
 	

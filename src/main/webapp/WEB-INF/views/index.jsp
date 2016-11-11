@@ -16,7 +16,7 @@ Home
 }
 
 .carousel-inner>.item>img {
-	width: 1040px;
+	width: 100%;
 	height: 340px;
 }
 .carousel-indicators .item{
@@ -160,8 +160,3 @@ margin-bottom:15px;
 	</div>
 	
 	<%@include file="Footerjsp.jsp"%>
-	<!--function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
-</script> -->
-	<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->

@@ -23,16 +23,27 @@ color:#ff4d4d;
         <li ><a href="<c:url value="/home"/>"><span class="glyphicon glyphicon-home" style="margin-right:5px;"></span>Home</a></li>
         
         <li><a href="<c:url value="/viewall"/>">View All</a>
-        
+       
+       <%--  <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">CATEGORIES<span class="caret"></span></a>
+          <ul class="dropdown-menu" style="background-color:#000000">
+          <c:forEach items="${navilist}" var="navi">
+            <li><a href="<c:url value="/home/${navi.category}"/>">${navi.category}</a></li>
+           </c:forEach>
+          </ul>
+          </li> --%>
+         
         <li><a href="#">About Us</a></li>
+        <li><a href="<c:url value="/angular"/>">Angular</a></li>
        	 <li><a href="<c:url value="/contactus"/>">Contact Us</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <security:authorize access="hasRole('ROLE_ADMIN')">
-		<li><a href="product" class="btn btn-xs" style="background-color:green">product</a></li>
+		<li><a href="product" class="btn btn-xs">product</a></li>
 		</security:authorize>
-				
+		<security:authorize access="hasRole('ROLE_USER')">		
       	<li><a href="<c:url value="/viewcart"/>"><span class="glyphicon glyphicon-lawnmover"></span> Cart</a></li>
+      	</security:authorize>
       	<c:if test="${pageContext.request.userPrincipal.name!=null}">
       	 <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">${pageContext.request.userPrincipal.name}<span class="caret"></span></a>

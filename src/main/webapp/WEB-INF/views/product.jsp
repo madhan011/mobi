@@ -1,25 +1,25 @@
 <%@include file="header.jsp"%>Productupload<%@include file="Header2.jsp"%>
 <style>
 .button1{
-background-color:#DEA573;
+background-color:#ffffff;
 color:#000000;
 border:1px solid #000000;
 }
 .button1:hover{
-color:#DEA573;
+color:#ffffff;
 background-color:#000000;
 }
 tr{
 
 height:40px;
-color:#DEA573;
+color:#ffffff;
 }
 table {
     border-collapse: collapse;
    background-color: #000000;
    width:65%;
     margin-top:5px;
-    border:5px solid #DEA573; 
+    border:5px solid #000000; 
   
 }
 
@@ -34,7 +34,7 @@ th, td {
 color:#000000;
 width:360px
 }
-tr:nth-child(even){background-color: #DEA573;color:#000000}
+tr:nth-child(even){background-color: #ffffff;color:#000000}
 </style>
 </head>
 <body>

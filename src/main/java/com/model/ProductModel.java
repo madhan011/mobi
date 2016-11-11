@@ -6,8 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
@@ -18,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class ProductModel {
 	@NotEmpty(message="Description field is mandatory.")
-	@Column(length=65000)
+	@Length(max=65000)
 	private String description;
 	@NotNull(message="Field is mandatory")
 	@NumberFormat(style = Style.NUMBER)
@@ -44,6 +45,7 @@ public class ProductModel {
 	@Column
 	@NotNull(message="Field is mandatory")
 	@NumberFormat(style = Style.NUMBER,pattern="###")
+	@Min(value=0,message="Value should not be negative")
 	private Integer quantity;
 	public String getImagename() {
 		return imagename;

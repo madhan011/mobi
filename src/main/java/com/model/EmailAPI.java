@@ -19,7 +19,7 @@ public class EmailAPI {
 		msgdetails.setText(msgBody);
 		mailsend.send(msgdetails);}
 	catch(Exception e){
-		e.getMessage();
+		System.out.println(e.getMessage());
 	}
 	}
 	

@@ -2,8 +2,6 @@ package com.controller;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,7 +24,7 @@ public class Homecontroller {
 	@Autowired
 	ProductService productservice;
 
-	@RequestMapping(value ={"/","/home","admin/home"})
+	@RequestMapping(value ={"/","/home"})
 	public String home(Map<String, Object>map) {
 
 		ProductModel productmodelResult = new ProductModel();
@@ -46,6 +44,9 @@ public class Homecontroller {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView getlogin(ModelMap map,@RequestParam(value="error",required=false) String error,@RequestParam(value="logout",required=false) String logout) {
 		ModelAndView mv=new ModelAndView("Login");
+		ProductModel productmodelResult = new ProductModel();
+		map.put("navi",productmodelResult);
+	    map.put("navilist", productservice.getAllProductModel());
 		if(error!=null){
 			//String eror="Please check username or password !!.";
 		mv.addObject("error","Please check username or password !!.");
@@ -58,8 +59,12 @@ public class Homecontroller {
 	}
 
 	@RequestMapping(value="/contactus")
-	public String  contact()
+	public String  contact(Map<String, Object>map)
 	{
+		ProductModel productmodelResult = new ProductModel();
+		map.put("navi",productmodelResult);
+	    map.put("navilist", productservice.getAllProductModel());
+		
 		return "Contactus";
 		
 	}

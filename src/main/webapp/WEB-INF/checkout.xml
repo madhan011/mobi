@@ -5,6 +5,7 @@
                         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
 
+
 	<!-- Executed when webFlow is triggered -->
 	<on-start>
 		<evaluate expression="checkouthandler.initFlow()" result="flowScope.shippingdetails" />

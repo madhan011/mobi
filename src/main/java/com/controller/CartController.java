@@ -67,7 +67,7 @@ public class CartController {
 			if (pid==id) {
 				System.out.println("Existing avaiable loop");
 				int quan = p.get(i).getQuantity() + 1;
-				//prdcntrl.deleteproductquantity(id);
+				prdcntrl.delproctquantity(id,1);
 				p.get(i).setQuantity(quan);
 				p.get(i).setTotalprice(p.get(i).getProduct().getPrice() * quan);
 				System.out.println("update");
@@ -77,7 +77,7 @@ public class CartController {
 		}
 		System.out.println("newproduct");
 		cart.setQuantity(1);
-		//prdcntrl.deleteproductquantity(id);
+		prdcntrl.delproctquantity(id,1);
 		cart.setTotalprice(pm.getPrice());
 		cart.setProduct(pm);
 		cart.setUsername(username);
@@ -118,16 +118,19 @@ public class CartController {
 		cart.setQuantity(cartquantity);
 		cart.setTotalprice(cart.getProduct().getPrice()*cartquantity);
 		cs.update(cart);
+		prdcntrl.addproctquantity(productid,1);
 		return "redirect:/viewcart";
 	}
 	@RequestMapping(value="/increase/{cid}")
 	public String incprodquan(@PathVariable("cid") int cid){
 		Cart cart=cs.getcartitembyid(cid);
-		int productid=cart.getProduct().getProductid();
+		int id=cart.getProduct().getProductid();
+		System.out.println("increase"+id);
 		int cartquantity=cart.getQuantity()+1;
 		cart.setQuantity(cartquantity);
 		cart.setTotalprice(cart.getProduct().getPrice()*cartquantity);
 		cs.update(cart);
+		prdcntrl.delproctquantity(id,1);
 		return "redirect:/viewcart";
 	}
 	
@@ -140,7 +143,7 @@ public class CartController {
 		System.out.println(cartquantity);
 		System.out.println("DELETECRT");
 		cs.deletecartitem(cid);
-		//prdcntrl.addproctquantity(productid,cartquantity);
+		prdcntrl.addproctquantity(productid,cartquantity);
 		return "redirect:/viewcart";
 	}
 	@RequestMapping(value="/yourorders")
@@ -159,12 +162,12 @@ public class CartController {
 		System.out.println("DELTEBYMANUAL"+username);
 		List<Cart> decart=cs.getAllCart(username);
 		
-	/*	for(int i=0;i<decart.size();i++)
+	for(int i=0;i<decart.size();i++)
 		{
 			int getprdit=decart.get(i).getProduct().getProductid();
 			int delquan=decart.get(i).getQuantity();
-			//prdcntrl.addproctquantity(getprdit,delquan);	
-		}*/
+			prdcntrl.addproctquantity(getprdit,delquan);	
+		}
 		cs.deleteallcartitem(username);
 		return "redirect:/viewcart";
 	}

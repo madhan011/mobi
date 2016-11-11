@@ -2,15 +2,15 @@
 <style>
 .WORDLOGIN{
 	text-align: center;
-	color: #ff4d4d;
+	color: #ffffff;
 }
 
 body {
-	background: #ff4d4d;
+	background: #eb757d;
 }
 
 .main-wrap {
-	background: #ff4d4d;
+	background: #eb757d;
 	width: 100%;
 	height: 70%;
 	/* position: absolute; */
@@ -18,7 +18,7 @@ body {
 
 .login-main {
 	width: 300px;
-	height: 200px;
+	height: 225px;
 	position: absolute;
 	margin: auto;
 	top: 0;
@@ -39,14 +39,14 @@ body {
 }
 
 .box1 {
-	background: #ff4d4d;
+	background: #eb757d;
 	height: 40px;
 	text-indent: 10px;
 	width: 90%;
 	margin-bottom: 2px;
 	color: #000000;
 	font-size: 15px;
-	font-weight: 400;
+	font-weight: bold;
 }
 
 .border1 {
@@ -64,7 +64,10 @@ body {
 	-o-border-radius: 0px 0 5px 5px;
 	border-radius: 0px 0 5px 5px;
 }
-
+::-moz-placeholder{
+color:#000000;
+font-weight:bold;
+}
 .send {
 	width: 60px;
 	height: 60px;
@@ -76,10 +79,10 @@ body {
 	position: absolute;
 	right: 9px;
 	top: 77px;
-	border: 5px solid #ff4d4d;
+	border: 5px solid #eb757d;
 	background: #000000;
 	font-size: 18px;
-	color: #ff4d4d;
+	color: #eb757d;
 	font-weight: normal;
 	text-shadow: 1px 1px 2px #000;
 	box-sizing: border-box;
@@ -138,12 +141,12 @@ to {
 .button1 {
 	margin-top: 10px;
 	background-color: #000000;
-	color: #ff4d4d;
+	color: #ffffff;
 }
 
 .button1:hover {
 	color: #000000;
-	background-color: #ff4d4d;
+	background-color: #eb757d;
 	border: 1px solid #000000;
 }
 </style>
@@ -158,22 +161,48 @@ to {
 			<h4 style="color: white; margin-top: 50px; text-align: center;">${error}</h4>
 		</c:if>
 		<div class="login-main">
+		<h3 class="WORDLOGIN">LOGIN</h3>
 			<form name='loginForm'
 				action="<c:url value='j_spring_security_check' />" method='POST'>
-
-
-				<h3 CLASS="WORDLOGIN">LOGIN</h3>
 				<input type="text" placeholder="username" name="username"
-					class="box1 border1"> <input type="password"
+					class="box1 border1"> <input type="password" id="test1"
 					placeholder="password" name="password" class="box1 border2">
-				<input type="submit" class="send" value="Go"> <a
+					
+				<input type="submit" class="send" value="Go"><br>
+				<input id="test2" type="checkbox" /><span style="color:#ffffff;margin-left:10px;">show password</span> <br><a
 					class="btn button1" href="<c:url value="/memberShip.obj"/>">Sign
 					Up</a> <a class="Pull-right btn button1" style="margin-right: 30px"
 					href="<c:url value="/getforget"/>">Forget password?</a>
+					
 			</form>
 		</div>
 	</div>
 	<%@include file="Footerjsp.jsp"%>
+	<script type="text/javascript">
+	(function ($) {
+	    $.toggleShowPassword = function (options) {
+	        var settings = $.extend({
+	            field: "#password",
+	            control: "#toggle_show_password",
+	        }, options);
+
+	        var control = $(settings.control);
+	        var field = $(settings.field)
+
+	        control.bind('click', function () {
+	            if (control.is(':checked')) {
+	                field.attr('type', 'text');
+	            } else {
+	                field.attr('type', 'password');
+	            }
+	        })
+	    };
+	}(jQuery));
+	$.toggleShowPassword({
+	    field: '#test1',
+	    control: '#test2'
+	});
+	</script>
 	<script type="text/javascript">
 		window.history.forward();
 		function noBack() {

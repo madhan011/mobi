@@ -1,7 +1,7 @@
 <%@include file="header.jsp"%>REGISTRATION<%@include file="Header2.jsp"%>
 <style>
 body{
-background-color:#ff4d4d;
+background-color:#ffffff;
 }
 i{
 color:#ffffff;
@@ -46,7 +46,7 @@ animation: blinker 1s linear infinite;
 						items="${flowRequestContext.messageContext.getMessagesBySource('fname')}"
 						var="err">
 						<div>
-							<span style="color:white" class="error1">${err.text}</span>
+							<span style="color:red" class="error1">${err.text}</span>
 						</div>
 					</c:forEach>
 					<br>
@@ -55,7 +55,7 @@ animation: blinker 1s linear infinite;
 						items="${flowRequestContext.messageContext.getMessagesBySource('email')}"
 						var="err">
 						
-							<span style="color:white" class="error1">${err.text}</span>
+							<span style="color:red" class="error1">${err.text}</span>
 						
 					</c:forEach>
 					<br>
@@ -72,12 +72,12 @@ animation: blinker 1s linear infinite;
 								items="${flowRequestContext.messageContext.getMessagesBySource('age')}"
 								var="err">
 								
-									<span style="color:white" class="error1">${err.text}</span>
+									<span style="color:red" class="error1">${err.text}</span>
 								
 							</c:forEach>
 							<br>
 							<form:input path="age" type="text" required="true" title='Numberic value is Valid'
-								class="form-control input-lg" placeholder="Your Age" pattern="[1-9]{1,3}"/>
+								class="form-control input-lg" placeholder="Your Age" pattern="[1-9]{.3}"/>
 							<br />
 							
 						</div>
@@ -87,12 +87,12 @@ animation: blinker 1s linear infinite;
 								items="${flowRequestContext.messageContext.getMessagesBySource('phnumber')}"
 								var="err">
 								
-									<span style="color:white" class="error1">${err.text}</span>
+									<span style="color:red" class="error1">${err.text}</span>
 								
 							</c:forEach>
 							<br>
 							<form:input path="phnumber" required="true" title="PhoneNumber Starts with Either 7,8 or 9.Length Must Be 10"
-								class="form-control input-lg" placeholder="phone number" pattern="[789][0-9]{9}"/>
+								class="form-control input-lg" placeholder="phone number" pattern="^[789][0-9]{9}"/>
 
 							<!-- to display validation messages -->
 							
@@ -103,12 +103,12 @@ animation: blinker 1s linear infinite;
 						items="${flowRequestContext.messageContext.getMessagesBySource('username')}"
 						var="err">
 						
-							<span style="color:white" class="error1">${err.text}</span>
+							<span style="color:red" class="error1">${err.text}</span>
 						
 					</c:forEach>
 					<br>
-					<form:input path="username" required="true"
-						class="form-control input-lg" placeholder="Username" />
+					<form:input path="username" required="true" title="ALPHABETS ONLY VALID> LENGHT MUST BE 3-12"
+						class="form-control input-lg" placeholder="Username" pattern="[a-zA-z]{3,12}"/>
 					<br />
 					<!-- to display validation messages -->
 					
@@ -123,7 +123,7 @@ animation: blinker 1s linear infinite;
 								items="${flowRequestContext.messageContext.getMessagesBySource('password')}"
 								var="err">
 								<div>
-									<span style="color:white" class="error1">${err.text}</span>
+									<span style="color:red" class="error1">${err.text}</span>
 								</div>
 							</c:forEach>
 						</div>
@@ -138,7 +138,7 @@ animation: blinker 1s linear infinite;
 								items="${flowRequestContext.messageContext.getMessagesBySource('cPassword')}"
 								var="err">
 								<div>
-									<span style="color:white" class="error1">${err.text}</span>
+									<span style="color:red" class="error1">${err.text}</span>
 								</div>
 							</c:forEach>
 						</div>
@@ -174,16 +174,20 @@ animation: blinker 1s linear infinite;
 	</div>
 	<script type="text/javascript">
 	function validatePassword(){
+	var age=document.getElementById("age").value;
 	var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("cPassword").value;
+    if(age>100){
+    	alert("Age must be 100 ");
+    	return false;
+    }else
     if (password != confirmPassword) {
         alert("Passwords does not match.");
         return false;
     }
+    	
     return true;
-}
-
-		
+}	
 	</script>
 	<!-- </body>
 </html> -->

@@ -40,10 +40,14 @@ public class OrderController {
 	@Autowired
 	ProductController prdcntrl;
 	
-//	Checkouthandler ch=new Checkouthandler();
+
 
 	@RequestMapping(value = "/save/order")
 	public String saveorder(Map<String, Object> map) {
+		ProductModel productmodelResult = new ProductModel();
+		map.put("navi",productmodelResult);
+	    map.put("navilist", ps.getAllProductModel());
+		
 		
 		Cartuser updatedshipping= Checkouthandler.getUc();
 		Order order = new Order();
@@ -71,6 +75,7 @@ public class OrderController {
 		{
 			System.out.println("ci"+ci);
 			int getprdit=cu.get(ci).getProduct().getProductid();
+			System.out.println(getprdit);
 			int prodquan=cu.get(ci).getQuantity();
 			order.setQuantity(prodquan);
 			double totprice=cu.get(ci).getTotalprice(); 
@@ -80,7 +85,7 @@ public class OrderController {
 			order.setProductname(cartprdnmae);
 			order.setPoductprice(crtprdprice);
 			cs.addord(order);
-			prdcntrl.delproctquantity(getprdit,prodquan);
+			//prdcntrl.delproctquantity(getprdit,prodquan);
 		}
 		
 		//or.send1(updatedshipping, order);
@@ -99,8 +104,8 @@ public class OrderController {
 				+ updatedshipping.getShippingdetails().getAddr2() + System.getProperty("line.separator") + updatedshipping.getShippingdetails().getAddr3()
 				+ updatedshipping.getShippingdetails().getCity() + "-" + updatedshipping.getShippingdetails().getPincode() + System.getProperty("line.separator")
 				+ System.getProperty("line.separator") + "Grand Total:" + updatedshipping.getGrandtotal()
-				+ System.getProperty("line.separator") + "It wil arrive as soon as posile"
-				+ System.getProperty("line.separator") + "Thanks to begin with us."
+				+ System.getProperty("line.separator") + "It wil arrive as soon as possible. Cash will collect on the time of delivery."+ System.getProperty("line.separator")
+				+"This is automatic generated bill. "+ System.getProperty("line.separator") + "Thanks to begin with us."
 				+ System.getProperty("line.separator") + System.getProperty("line.separator")
 				+ System.getProperty("line.separator") + System.getProperty("line.separator") + "------------"
 				+ System.getProperty("line.separator") + "-Mobiaces";

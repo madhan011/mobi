@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.model.Order;
 import com.model.ProductModel;
 import com.service.Cartservice;
 import com.service.ProductService;
@@ -44,6 +43,10 @@ public class AdminController {
 		ProductModel productmodelResult = new ProductModel();
 		map.put("productModel",productmodelResult);
 	    map.put("productmodelList", productservice.getAllProductModel());
+	    //ProductModel productmodelResult = new ProductModel();
+		map.put("navi",productmodelResult);
+	    map.put("navilist", productservice.getAllProductModel());
+		
 	    
 	return "Viewall";	
 	}
@@ -69,9 +72,9 @@ public class AdminController {
 	public String edit(@PathVariable("productid")int id,@ModelAttribute ProductModel productModel,Map<String, Object>map)
 	{
 		
-		productModel=productservice.getProductModel(id);
+		//productModel1=productservice.getProductModel(id);
 		map.put("productModel",productModel);
-	//	map.put("productmodelList", productservice.getAllProductModel());
+		map.put("productmodelList",productservice.getProductModel(id));
 	    return "product";
 	}
 	@RequestMapping(value="/delete/{productid}")
@@ -82,8 +85,12 @@ public class AdminController {
 	return "redirect:/viewall";
 }
 	@RequestMapping(value="/product")
-	public String prod()
+	public String prod(Map<String,Object> map)
 	{
+		ProductModel productmodelResult = new ProductModel();
+		map.put("navi",productmodelResult);
+	    map.put("navilist", productservice.getAllProductModel());
+		
 	return "product";	
 	}
 	
@@ -174,14 +181,10 @@ public class AdminController {
 	}
 		return "redirect:/product";
 	}
-	@RequestMapping(value="/viewproduct/{productid}")
-	public String view(@PathVariable(value="productid")int id,@ModelAttribute ProductModel productModel,Map<String, Object>map)
+	
+	@RequestMapping(value="/angular")
+	public String ang()
 	{
-		productModel=productservice.getProductModel(id);
-		System.out.println("view"+productModel.getName());
-		map.put("productModel",productModel);
-		//map.put("productmodelList", productModel);
-		return 	"productview";
+		return "ANGULAR";
 	}
-
 }

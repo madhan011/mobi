@@ -63,7 +63,7 @@ color:#ff4d4d;
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 				<div class='adminview'>
 				<hr>
-					<a href="<c:url value="edit/${productModel.productid}"/>" class="btn btn-sm btn-warning edit">EDIT</a>
+				<%-- 	<a href="<c:url value="edit/${productModel.productid}"/>" class="btn btn-sm btn-warning edit">EDIT</a> --%>
 					<a href="<c:url value="delete/${productModel.productid}"/>" class="btn btn-sm btn-danger pull-right">DELETE</a>
 					</div>
 			</security:authorize>

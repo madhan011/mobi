@@ -6,7 +6,6 @@
     http://www.springframework.org/schema/security 
     http://www.springframework.org/schema/security/spring-security.xsd">
 
-
 	<!-- SPRING SECURITY CONFIGURATION -->
 	<!-- enable use-expressions -->
 	<http auto-config="true" use-expressions="true">
